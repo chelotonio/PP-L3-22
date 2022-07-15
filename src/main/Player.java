@@ -2,10 +2,18 @@ package main;
 
 import java.util.Objects;
 
+/**
+ * Clase Player
+ * Clase desde la cual se representa cada jugador registrado para jugar.
+ * @author Marcelo Vásquez
+ * @version 0.1, 2022/07/14
+ */
+
 public class Player {
 
     private String player;
 
+    // Constructor de Player.
     public Player(String player) {
         this.player = player;
     }
@@ -28,8 +36,6 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player{" +
-                "player='" + player + '\'' +
-                '}';
+        return "player=" + player;
     }
 }

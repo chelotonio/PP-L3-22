@@ -1,85 +1,113 @@
 package main;
 
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Objects;
+
+/**
+ * Clase DobbleGame
+ * Clase desde la cual se reciben todos los TDA, desde los cuales se construye una partida.
+ * @author Marcelo Vásquez
+ * @version 0.1, 2022/07/14
+ */
 
 public class DobbleGame {
 
+
     private Dobble dobble;
-    private Player player;
+    private int numPlayers;
     private String mode;
     private Integer seed;
+    private ArrayList<Player> players;
+    private int turn;
 
-    public DobbleGame(Dobble dobble, Player player, String mode, Integer seed) {
+    // Constructor de DobbleGame.
+
+
+    public DobbleGame(Dobble dobble, int numPlayers, String mode, Integer seed, ArrayList<Player> players, int turn) {
         this.dobble = dobble;
-        this.player = player;
+        this.numPlayers = numPlayers;
         this.mode = mode;
+        this.seed = seed;
+        this.players = players;
+        this.turn = turn;
+    }
+
+    public Dobble getDobble() {
+        return dobble;
+    }
+
+    public void setDobble(Dobble dobble) {
+        this.dobble = dobble;
+    }
+
+    public int getNumPlayers() {
+        return numPlayers;
+    }
+
+    public void setNumPlayers(int numPlayers) {
+        this.numPlayers = numPlayers;
+    }
+
+    public String getMode() {
+        return mode;
+    }
+
+    public void setMode(String mode) {
+        this.mode = mode;
+    }
+
+    public Integer getSeed() {
+        return seed;
+    }
+
+    public void setSeed(Integer seed) {
         this.seed = seed;
     }
 
-    public static void main(String[] args) {
-
-        ArrayList<String> elements = new ArrayList<>();
-
-        elements.add("a");
-        elements.add("b");
-        elements.add("c");
-        elements.add("d");
-        elements.add("e");
-        elements.add("f");
-        elements.add("g");
-        elements.add("h");
-        elements.add("i");
-        elements.add("j");
-        elements.add("k");
-        elements.add("l");
-        elements.add("m");
-
-        // Variables de control de datos.
-        ArrayList<String> arreglo = new ArrayList<>();
-
-        ArrayList<Card> baraja = new ArrayList<>();
-
-        // Se inicializa set Dobble.
-        Dobble dobble = new Dobble(baraja);
-        Dobble setCartas;
-
-        baraja = dobble.CardsSet(elements, 3, 4,3234);
-        System.out.println(baraja);
-
-        // Variables de control de menú.
-        boolean bandera = true;
-        Scanner entrada = new Scanner(System.in);
-
-        while (bandera) {
-
-            System.out.println("¡Bienvenido a Dobble!");
-            System.out.println("1.- Jugar");
-            System.out.println("2.- Configurar partida");
-            System.out.println("3.- Registrar Jugadores");
-            System.out.println("4.- Visualizar estado completo de juego");
-            System.out.println("5.- Salir del juego");
-
-            System.out.println("Introduzca el número de su opción: ");
-            Integer opcion = entrada.nextInt();
-
-                // Si se ingresa opción 1.
-            if(opcion == 1) {
-                System.out.println("Ingresaste: " + opcion);
-                // Si se ingresa opción 2.
-            } else if (opcion == 2) {
-                System.out.println("Ingresaste: " + opcion);
-                // Si se ingresa opción 3.
-            } else if(opcion == 3) {
-
-                // Si se ingresa opción 4.
-            } else if(opcion == 4) {
-
-                // Si se ingresa opción 5.
-            } else if(opcion == 5) {
-                bandera = false;
-            }
-        }
-        System.out.println("¡Gracias por jugar Dobble!");
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
+
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    public void setTurn(int turn) {
+        this.turn = turn;
+    }
+
+    @Override
+    public String toString() {
+        return "DobbleGame{\n" +
+                "dobble=" + dobble +
+                ", \nnumPlayers=" + numPlayers +
+                ", \nmode='" + mode + '\'' +
+                ", \nseed=" + seed +
+                ", \nplayers=" + players +
+                ", \nturn=" + turn +
+                '}';
+    }
+
+    public DobbleGame dobbleGameRegister(String user, DobbleGame dgi) {
+
+        Player player = new Player(user);
+
+        if (dgi.players.contains(player)) {
+            System.out.println("El usuario ingresado ya está registrado.");
+            return dgi;
+        }
+        System.out.println("¡Usuario ingresado con éxito!");
+        dgi.players.add(player);
+        return dgi;
+
+    }
+    public String whoseTurnIsIt (DobbleGame partida) {
+
+        return "a";
+    }
+
 }

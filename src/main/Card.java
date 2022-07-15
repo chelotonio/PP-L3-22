@@ -3,8 +3,17 @@ package main;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Clase Card
+ * Clase que representa una lista de Strings análoga a una carta de un set de cartas válido.
+ * @author Marcelo Vásquez
+ * @version 0.1, 2022/07/14
+ */
+
 public class Card {
     private ArrayList<String> carta;
+
+    // Constructor de Card.
     public Card(ArrayList<String> carta) {
         this.carta = carta;
     }
@@ -24,9 +33,7 @@ public class Card {
     }
     @Override
     public String toString() {
-        return "Card{" +
-                "carta=" + carta +
-                '}';
+        return "carta=" + carta;
     }
 
     public Card agregarCarta(String string) {

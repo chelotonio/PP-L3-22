@@ -1,13 +1,21 @@
 package main;
 
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * Clase Dobble
+ * Clase desde la que se genera el set de cartas válido para dobble y se realizan algunos métodos para esta.
+ * @author Marcelo Vásquez
+ * @version 0.1, 2022/07/14
+ */
 public class Dobble {
 
     private Card carta;
     private ArrayList<Card> cartas;
 
+    // Constructor de Dobble.
     public Dobble(ArrayList<Card> cartas) {
         this.cartas = cartas;
     }
@@ -109,5 +117,22 @@ public class Dobble {
         }
         return stringCardsSet;
     }
+
+    /*
+    Ejemplos de uso para cardsSet:
+
+       1.- ArrayList<Card> setCartas = new ArrayList<>();
+           Dobble dobble = new Dobble(setCartas);
+           setCartas = dobble.CardsSet(elements, 3, 6, 1234);
+
+       2.- ArrayList<Card> setCartas = new ArrayList<>();
+           Dobble dobble = new Dobble(setCartas);
+           setCartas = dobble.CardsSet(elements, 4, -1, 14334);
+
+       3.- ArrayList<Card> setCartas = new ArrayList<>();
+           Dobble dobble = new Dobble(setCartas);
+           setCartas = dobble.CardsSet(elements, 2, 3, 15333);
+
+    */
 
 }
